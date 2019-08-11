@@ -1,6 +1,6 @@
 "use strict";
 var mime = require('./lib/mime_types');
-var application = require("application");
+const utils = require('tns-core-modules/utils/utils');
 // var getContext = function () {
 //     if (application.android.context) {
 //         return (application.android.context);
@@ -20,7 +20,7 @@ var openFile = function (FilePath) {
         } else {
             var intent = new android.content.Intent(android.content.Intent.ACTION_VIEW);
             intent.setDataAndType(android.net.Uri.fromFile(new java.io.File(FilePath)), file_type);
-            application.android.currentContext.startActivity(android.content.Intent.createChooser(intent, "Open File..."));
+            utils.ad.getApplicationContext().startActivity(android.content.Intent.createChooser(intent, "Open File..."));
         }
 
     } catch (e) {
